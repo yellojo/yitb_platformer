@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=4 uid="uid://bpmlck5yvbdw3"]
+
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_3ok1e"]
+[ext_resource type="TileSet" uid="uid://csh7rabgdxsdu" path="res://geometry.tres" id="1_m51xs"]
+[ext_resource type="PackedScene" uid="uid://3gvjaqr628dt" path="res://scenes/player.tscn" id="2_hw3wy"]
+[ext_resource type="PackedScene" uid="uid://do64efklf6wkx" path="res://scenes/coin.tscn" id="2_pr7na"]
+[ext_resource type="PackedScene" uid="uid://din2g8tew3j4v" path="res://scenes/camera.tscn" id="3_be218"]
+[ext_resource type="PackedScene" uid="uid://7s08hvg6pe7h" path="res://scenes/spikes.tscn" id="3_nwjry"]
+[ext_resource type="Texture2D" uid="uid://dka6qj8klegir" path="res://atlas/back.tres" id="4_ca58p"]
+[ext_resource type="PackedScene" uid="uid://cbu7cfpusyvga" path="res://scenes/diamond.tscn" id="4_soux8"]
+[ext_resource type="PackedScene" uid="uid://chtmp4c27aje0" path="res://scenes/spike_enemy.tscn" id="9_b2qva"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3q62t"]
+scenes/1/scene = ExtResource("2_pr7na")
+scenes/2/scene = ExtResource("3_nwjry")
+scenes/3/scene = ExtResource("4_soux8")
+
+[sub_resource type="TileSet" id="TileSet_pwn2u"]
+tile_size = Vector2i(18, 18)
+sources/0 = SubResource("TileSetScenesCollectionSource_3q62t")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_3ok1e")
+
+[node name="Geometry" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD7/wIAAwABAAMAAAD7/wEAAwABAAIAAAD7/wAAAwABAAIAAAD7////AwAFAAAAAAD7//7/AwACAAIAAAD7//3/AwADAAIAAAD7//z/AwAEAAAAAAD7//v/AwACAAEAAAAEAAEAAwADAAIAAAADAAIAAwAEAAAAAAADAAEAAwAFAAEAAAACAAIAAwACAAIAAAACAAEAAwACAAEAAAABAAIAAwACAAIAAAABAAEAAwACAAEAAAAAAAIAAwACAAIAAAAAAAEAAwACAAEAAAD//wIAAwACAAIAAAD//wEAAwACAAEAAAD+/wIAAwACAAIAAAD+/wEAAwACAAEAAAD9/wIAAwACAAIAAAD9/wEAAwACAAEAAAD8/wIAAwAFAAAAAAD8/wEAAwAEAAEAAAAEAAAAAwADAAIAAAAEAP//AwAEAAAAAAAEAP7/AwACAAIAAAAEAP3/AwACAAIAAAAEAPz/AwACAAIAAAAEAPv/AwAFAAEAAAAEAPr/AwABAAIAAAAEAPn/AwAFAAAAAAADAAAAAwABAAIAAAADAP//AwABAAIAAAADAP3/AwABAAIAAAADAPz/AwABAAIAAAADAPn/AwABAAMAAAD8/wAAAwADAAIAAAD8////AwADAAIAAAD8//7/AwADAAEAAAD8//z/AwADAAMAAAD8//v/AwADAAEAAAD6//3/AwABAAIAAAD6//z/AwABAAIAAAD6//v/AwABAAEAAAAFAP7/AwADAAIAAAAFAP3/AwADAAIAAAAFAPz/AwADAAIAAAAFAPv/AwADAAIAAAAFAPr/AwADAAIAAAAFAPn/AwADAAIAAAABAAMAAwACAAMAAAAAAAMAAwACAAMAAAD//wMAAwACAAMAAAD+/wMAAwACAAMAAAD9/wMAAwACAAMAAAACAAMAAwACAAMAAAADAP7/AwABAAIAAAADAPv/AwABAAEAAAAFAPj/AwADAAEAAAAEAPj/AwACAAEAAAADAPj/AwABAAEAAAAEAAIAAwADAAMAAAADAAMAAwADAAMAAAD8/wMAAwABAAMAAAD6//7/AwABAAIAAAD6////AwABAAMAAAAFAP//AwADAAMAAADx/wAAAwADAAUAAADw/wAAAwASAAoAAADv/wAAAwATAAkAAAD2////AwADAAcAAAD2//7/AwADAAUAAAD1////AwACAAcAAAD1//7/AwACAAUAAAD0////AwABAAcAAAD0//7/AwABAAUAAADw////AwADAAYAAADv////AwATAAoAAADw//7/AwADAAUAAADv//7/AwABAAUAAADw/wMAAwADAAQAAADv/wMAAwABAAQAAADx/wEAAwADAAcAAADw/wEAAwACAAcAAADv/wEAAwABAAcAAADn/wIAAwABAAcAAADn/wEAAwABAAYAAADn/wAAAwABAAYAAADn////AwABAAYAAADn//7/AwABAAYAAADn//3/AwABAAYAAADn//z/AwABAAYAAADn//v/AwABAAYAAADn//r/AwABAAYAAADn//n/AwABAAYAAADn//j/AwABAAYAAADn//f/AwABAAYAAADp/wQAAwADAAQAAADo/wQAAwACAAQAAADn/wQAAwACAAQAAADm/wQAAwACAAQAAADo/wIAAwADAAcAAADo/wEAAwADAAYAAADo/wAAAwADAAYAAADo////AwADAAYAAADo//7/AwADAAYAAADo//3/AwADAAYAAADo//z/AwADAAYAAADo//v/AwADAAYAAADo//r/AwADAAYAAADo//n/AwADAAYAAADo//j/AwADAAYAAADo//f/AwADAAYAAADl/wQAAwACAAQAAADk/wQAAwABAAQAAADi/wIAAwADAAQAAADh/wIAAwABAAQAAADl/wAAAwADAAQAAADk/wAAAwABAAQAAADi//7/AwADAAQAAADh//7/AwABAAQAAADl//z/AwADAAQAAADk//z/AwABAAQAAADi//r/AwADAAQAAADh//r/AwABAAQAAADl//j/AwADAAQAAADk//j/AwABAAQAAADo//b/AwADAAYAAADn//b/AwABAAYAAADf//z/AwADAAYAAADf//v/AwADAAYAAADf//r/AwADAAYAAADf//n/AwADAAYAAADf//j/AwADAAYAAADe//z/AwABAAYAAADe//v/AwABAAYAAADe//r/AwABAAYAAADe//n/AwABAAYAAADe//j/AwABAAYAAADf/wMAAwADAAYAAADf/wIAAwADAAYAAADf/wEAAwADAAYAAADf/wAAAwADAAYAAADf////AwADAAYAAADf//7/AwADAAYAAADf//3/AwADAAYAAADe/wMAAwABAAYAAADe/wIAAwABAAYAAADe/wEAAwABAAYAAADe/wAAAwABAAYAAADe////AwABAAYAAADe//7/AwABAAYAAADe//3/AwABAAYAAADf/wQAAwADAAcAAADe/wQAAwABAAcAAADX//n/AwASAAoAAADW//n/AwABAAYAAADX//j/AwADAAYAAADW//j/AwABAAYAAADW/wUAAwABAAYAAADW/wQAAwABAAYAAADW/wMAAwABAAYAAADW/wIAAwABAAYAAADW/wEAAwABAAYAAADW/wAAAwABAAYAAADW////AwABAAYAAADW//7/AwABAAYAAADW//3/AwABAAYAAADW//z/AwABAAYAAADW//v/AwABAAYAAADW//r/AwABAAYAAADX/wUAAwASAAoAAADX/wQAAwADAAYAAADX/wMAAwADAAYAAADX/wIAAwADAAYAAADX/wEAAwADAAYAAADX/wAAAwASAAkAAADX////AwASAAoAAADX//7/AwADAAYAAADX//3/AwADAAYAAADX//z/AwADAAYAAADX//v/AwADAAYAAADX//r/AwASAAkAAADe/wYAAwAAAAQAAADl//T/AwADAAQAAADk//T/AwABAAQAAADi//b/AwADAAQAAADh//b/AwABAAQAAADo//X/AwADAAYAAADo//T/AwADAAYAAADo//P/AwADAAYAAADo//L/AwADAAUAAADn//X/AwABAAYAAADn//T/AwABAAYAAADn//P/AwABAAYAAADn//L/AwABAAUAAADf//f/AwADAAYAAADf//b/AwADAAYAAADf//X/AwADAAYAAADf//T/AwADAAUAAADe//f/AwABAAYAAADe//b/AwABAAYAAADe//X/AwATAAkAAADe//T/AwACAAUAAADX//f/AwADAAYAAADX//b/AwADAAYAAADX//X/AwASAAkAAADX//T/AwACAAUAAADW//f/AwABAAYAAADW//b/AwABAAYAAADW//X/AwABAAYAAADW//T/AwABAAUAAADd//X/AwACAAcAAADd//T/AwACAAUAAADc//X/AwACAAcAAADc//T/AwACAAUAAADb//X/AwACAAcAAADb//T/AwACAAUAAADa//X/AwACAAcAAADa//T/AwACAAUAAADZ//X/AwACAAcAAADZ//T/AwACAAUAAADY//X/AwACAAcAAADY//T/AwACAAUAAADY/wUAAwADAAUAAADY/wYAAwADAAcAAADX/wYAAwACAAcAAADW/wYAAwABAAcAAADY/wAAAwADAAcAAADY////AwADAAUAAADY//r/AwADAAcAAADY//n/AwADAAUAAADc//j/AwADAAQAAADb//j/AwACAAQAAADa//j/AwABAAQAAADu/wAAAwABAAcAAADu////AwABAAUAAAA=")
+tile_set = ExtResource("1_m51xs")
+
+[node name="Collectables" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADZ//b/AAAAAAAAAwDa//b/AAAAAAAAAwDb//b/AAAAAAAAAwDc//b/AAAAAAAAAwDd//b/AAAAAAAAAwDd//f/AAAAAAAAAwDc//f/AAAAAAAAAwDb//f/AAAAAAAAAwDa//f/AAAAAAAAAwDZ//f/AAAAAAAAAwDW//L/AAAAAAAAAQDW//P/AAAAAAAAAQDX//L/AAAAAAAAAQDX//P/AAAAAAAAAQDY//L/AAAAAAAAAQDY//P/AAAAAAAAAQDZ//L/AAAAAAAAAQDZ//P/AAAAAAAAAQDa//L/AAAAAAAAAQDa//P/AAAAAAAAAQDb//L/AAAAAAAAAQDb//P/AAAAAAAAAQDc//L/AAAAAAAAAQDc//P/AAAAAAAAAQDd//L/AAAAAAAAAQDd//P/AAAAAAAAAQDe//L/AAAAAAAAAQDe//P/AAAAAAAAAQDf//L/AAAAAAAAAQDf//P/AAAAAAAAAQAFAAAAAAAAAAAAAwAFAAEAAAAAAAAAAwAFAAIAAAAAAAAAAwAFAAMAAAAAAAAAAwAEAAMAAAAAAAAAAwD6/wAAAAAAAAAAAQD6/wEAAAAAAAAAAQD6/wIAAAAAAAAAAQD6/wMAAAAAAAAAAQD7/wMAAAAAAAAAAQACAAAAAAAAAAAAAgD9/wAAAAAAAAAAAgA=")
+tile_set = SubResource("TileSet_pwn2u")
+
+[node name="Player" parent="." instance=ExtResource("2_hw3wy")]
+
+[node name="Camera2D" parent="." instance=ExtResource("3_be218")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("4_ca58p")
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -36.0
+offset_right = 48.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ca58p")
+
+[node name="SpikeEnemy" parent="." instance=ExtResource("9_b2qva")]
+position = Vector2(79, -148)

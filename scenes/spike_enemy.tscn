@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://chtmp4c27aje0"]
+
+[ext_resource type="Script" path="res://scenes/spike_enemy.gd" id="1_6e5ij"]
+[ext_resource type="Texture2D" uid="uid://duks0offap78b" path="res://assets/player/tilemap-characters_packed.png" id="1_bqysj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g26v"]
+atlas = ExtResource("1_bqysj")
+region = Rect2(144, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wnqk"]
+atlas = ExtResource("1_bqysj")
+region = Rect2(168, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1tqrk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g26v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wnqk")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_586dj"]
+size = Vector2(14, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_870hc"]
+size = Vector2(12, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3lob"]
+radius = 12.0
+
+[node name="SpikeEnemy" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_6e5ij")
+direction = null
+
+[node name="Flip" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flip"]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_1tqrk")
+animation = &"run"
+autoplay = "run"
+
+[node name="GroundCast" type="RayCast2D" parent="Flip"]
+position = Vector2(-8, -2)
+target_position = Vector2(0, 6)
+
+[node name="WallCast" type="RayCast2D" parent="Flip"]
+position = Vector2(-8, -6)
+target_position = Vector2(0, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_586dj")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_870hc")
+
+[node name="DeadArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadArea"]
+position = Vector2(0, -8)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_c3lob")
+
+[connection signal="area_entered" from="DeadArea" to="." method="_on_dead_area_area_entered"]

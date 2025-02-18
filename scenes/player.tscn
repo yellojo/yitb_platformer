@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=3 uid="uid://3gvjaqr628dt"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_b64lk"]
+[ext_resource type="Texture2D" uid="uid://duks0offap78b" path="res://assets/player/tilemap-characters_packed.png" id="2_1xkmv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyajd"]
+atlas = ExtResource("2_1xkmv")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh088"]
+atlas = ExtResource("2_1xkmv")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qylka"]
+atlas = ExtResource("2_1xkmv")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lttm"]
+atlas = ExtResource("2_1xkmv")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83jhn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyajd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh088")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qylka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lttm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1n7gt"]
+size = Vector2(10, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbwyj"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo4ub"]
+size = Vector2(9, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjcr7"]
+height = 36.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+script = ExtResource("1_b64lk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_83jhn")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.227542
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_1n7gt")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="AnotherDashTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_sbwyj")
+
+[node name="DeadArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_wo4ub")
+
+[node name="DashArea" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashArea"]
+position = Vector2(0, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tjcr7")
+
+[connection signal="area_entered" from="DeadArea" to="." method="_on_dead_area_entered"]
