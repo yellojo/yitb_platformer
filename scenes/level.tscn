@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpmlck5yvbdw3"]
+
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_3ok1e"]
+[ext_resource type="TileSet" uid="uid://csh7rabgdxsdu" path="res://geometry.tres" id="1_m51xs"]
+[ext_resource type="PackedScene" uid="uid://3gvjaqr628dt" path="res://scenes/player.tscn" id="2_hw3wy"]
+[ext_resource type="PackedScene" uid="uid://do64efklf6wkx" path="res://scenes/coin.tscn" id="2_pr7na"]
+[ext_resource type="PackedScene" uid="uid://din2g8tew3j4v" path="res://scenes/camera.tscn" id="3_be218"]
+[ext_resource type="PackedScene" uid="uid://7s08hvg6pe7h" path="res://scenes/spikes.tscn" id="3_nwjry"]
+[ext_resource type="Texture2D" uid="uid://dka6qj8klegir" path="res://atlas/back.tres" id="4_ca58p"]
+[ext_resource type="PackedScene" uid="uid://cbu7cfpusyvga" path="res://scenes/diamond.tscn" id="4_soux8"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7tp36"]
+scenes/1/scene = ExtResource("2_pr7na")
+scenes/2/scene = ExtResource("3_nwjry")
+scenes/3/scene = ExtResource("4_soux8")
+
+[sub_resource type="TileSet" id="TileSet_pwn2u"]
+tile_size = Vector2i(18, 18)
+sources/0 = SubResource("TileSetScenesCollectionSource_7tp36")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_3ok1e")
+
+[node name="Geometry" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_m51xs")
+
+[node name="Collectables" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_pwn2u")
+
+[node name="Player" parent="." instance=ExtResource("2_hw3wy")]
+
+[node name="Camera2D" parent="." instance=ExtResource("3_be218")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("4_ca58p")
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -36.0
+offset_right = 48.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ca58p")

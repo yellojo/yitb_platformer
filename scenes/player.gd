@@ -8,8 +8,8 @@ enum State {
 	DASH
 }
 
-const GRAVITY := 1200.0
-const JUMP_VELOCITY := -380.0
+const GRAVITY := 1500.0
+const JUMP_VELOCITY := -440.0
 
 var dash_speed = 400
 var input_dir: float
@@ -21,7 +21,7 @@ var current_state = State.NORMAL
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var dash_timer: Timer = $DashTimer
-@onready var another_dash_timer: Timer = $AnotherDashTimer
+@onready var dash_interval_timer: Timer = $DashIntervalTimer
 
 func _ready() -> void:
 	pass
@@ -62,7 +62,7 @@ func normal(delta) -> void:
 		coyote_timer.stop()
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_just_pressed("dash") and another_dash_timer.is_stopped():
+	if Input.is_action_just_pressed("dash") and dash_interval_timer.is_stopped():
 		current_state = State.DASH
 	
 	velocity.y += GRAVITY * delta
@@ -79,7 +79,7 @@ func dash(_delta) -> void:
 	
 	if dash_timer.is_stopped():
 		current_state = State.NORMAL
-		another_dash_timer.start()
+		dash_interval_timer.start()
 	
 	move_and_slide()
 	
