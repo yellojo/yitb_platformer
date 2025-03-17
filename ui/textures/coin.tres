@@ -1,0 +1,11 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://ch2lytng5gsie"]
+
+[ext_resource type="Texture2D" uid="uid://bjefrsiq0viwt" path="res://assets/tiles/tile_0151.png" id="1_ojg8e"]
+[ext_resource type="Texture2D" uid="uid://cvfbl2xgugqf0" path="res://assets/tiles/tile_0152.png" id="2_uy5cm"]
+
+[resource]
+frames = 2
+speed_scale = 4.0
+frame_0/texture = ExtResource("1_ojg8e")
+frame_1/texture = ExtResource("2_uy5cm")
+frame_1/duration = 1.0

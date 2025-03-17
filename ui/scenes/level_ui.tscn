@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0s7djbn4unm"]
+
+[ext_resource type="Script" path="res://ui/scenes/level_ui.gd" id="1_poqrf"]
+[ext_resource type="Theme" uid="uid://b4r360mn3ic5e" path="res://ui/main_theme.tres" id="1_rtacn"]
+[ext_resource type="PackedScene" uid="uid://dg4mcmi6xbg1c" path="res://ui/collect_info/collect_info.tscn" id="3_5so2n"]
+[ext_resource type="Texture2D" uid="uid://ch2lytng5gsie" path="res://ui/textures/coin.tres" id="3_o3pbk"]
+[ext_resource type="Texture2D" uid="uid://dndbtii5bc064" path="res://assets/tiles/tile_0067.png" id="5_lyi5r"]
+
+[node name="LevelUI" type="CanvasLayer" node_paths=PackedStringArray("coin_info", "diamond_info")]
+script = ExtResource("1_poqrf")
+coin_info = NodePath("MarginContainer/VBoxContainer/CoinInfo")
+diamond_info = NodePath("MarginContainer/VBoxContainer/DiamondInfo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_rtacn")
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CoinInfo" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_5so2n")]
+layout_mode = 2
+icon = ExtResource("3_o3pbk")
+
+[node name="DiamondInfo" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_5so2n")]
+layout_mode = 2
+icon = ExtResource("5_lyi5r")

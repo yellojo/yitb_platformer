@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b4r360mn3ic5e"]
+
+[ext_resource type="FontFile" uid="uid://brbij48ygwi6g" path="res://ui/kenney_pixel-platformer_numbers-small.png" id="1_jtcbw"]
+[ext_resource type="FontFile" uid="uid://bciwjgbh8384t" path="res://ui/BitPotion.ttf" id="1_m51of"]
+
+[resource]
+default_font = ExtResource("1_m51of")
+NumberLabel/base_type = &"Label"
+NumberLabel/font_sizes/font_size = 32
+NumberLabel/fonts/font = ExtResource("1_jtcbw")

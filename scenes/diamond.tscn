@@ -99,7 +99,7 @@ _data = {
 "pick_up": SubResource("Animation_tohxp")
 }
 
-[node name="Diamond" type="Node2D"]
+[node name="Diamond" type="Node2D" groups=["diamond"]]
 script = ExtResource("1_0r7rp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://brbij48ygwi6g"
+path="res://.godot/imported/kenney_pixel-platformer_numbers-small.png-63adbd787c1686de845654204249bbc4.fontdata"
+
+[deps]
+
+source_file="res://ui/kenney_pixel-platformer_numbers-small.png"
+dest_files=["res://.godot/imported/kenney_pixel-platformer_numbers-small.png-63adbd787c1686de845654204249bbc4.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("48-57")
+kerning_pairs=PackedStringArray()
+columns=10
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(3, 0, 3, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

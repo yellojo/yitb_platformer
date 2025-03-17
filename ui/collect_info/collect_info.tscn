@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg4mcmi6xbg1c"]
+
+[ext_resource type="Script" path="res://ui/collect_info/collect_info.gd" id="1_xeiqj"]
+[ext_resource type="Texture2D" uid="uid://dcjwvf2fingek" path="res://ui/textures/divide.tres" id="3_mmly2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0tr0b"]
+
+[node name="CollectInfo" type="HBoxContainer"]
+script = ExtResource("1_xeiqj")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_0tr0b")
+expand_mode = 3
+
+[node name="Collected" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"NumberLabel"
+text = "1"
+
+[node name="Divider" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_mmly2")
+expand_mode = 3
+
+[node name="Total" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"NumberLabel"
+text = "1"
