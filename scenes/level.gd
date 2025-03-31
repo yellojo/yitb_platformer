@@ -1,7 +1,5 @@
 extends Node
 
-
-
 signal coin_total_changed(total_coins: int, collected_coins: int)
 signal diamond_total_changed(total_diamonds: int, collected_diamonds: int)
 
@@ -17,6 +15,7 @@ func _ready() -> void:
 	RenderingServer.viewport_set_snap_2d_vertices_to_pixel(get_viewport().get_viewport_rid(), true)
 	#RenderingServer.set_default_clear_color(Color8(223, 246, 245))
 	
+	connect_player_won.call_deferred()
 	update_coin_count.call_deferred()
 	update_diamond_count.call_deferred()
 	
@@ -25,6 +24,10 @@ func _ready() -> void:
 	
 	spawn_pos = $Player.global_position
 	register_player($Player)
+
+func connect_player_won() -> void:
+	var flag: Flag = get_tree().get_first_node_in_group("flag")
+	flag.player_won.connect(LevelManager.next_level)
 
 func update_coin_count():
 	total_coins = get_tree().get_nodes_in_group("coin").size()

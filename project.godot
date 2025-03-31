@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="YITB_platformer"
-run/main_scene="res://scenes/level_test.tscn"
+run/main_scene="res://scenes/level/level_test.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LevelManager="*res://scenes/level_manager.tscn"
 
 [display]
 
@@ -29,6 +33,8 @@ player=""
 coin=""
 level=""
 diamond=""
+enemy_parent=""
+flag=""
 
 [gui]
 

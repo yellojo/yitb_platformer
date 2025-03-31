@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://c4v6n0j4trk4n"]
 
 [ext_resource type="PackedScene" uid="uid://bpmlck5yvbdw3" path="res://scenes/level.tscn" id="1_2rlmb"]
-[ext_resource type="PackedScene" uid="uid://chtmp4c27aje0" path="res://scenes/spike_enemy.tscn" id="2_g0w3i"]
+[ext_resource type="PackedScene" uid="uid://bcuwm6w5cthvl" path="res://scenes/enemy_spawner.tscn" id="3_7cbhy"]
 
 [node name="Level" instance=ExtResource("1_2rlmb")]
 
@@ -11,19 +11,17 @@ tile_map_data = PackedByteArray("AADW//T/AwABAAUAAADW//X/AwABAAYAAADW//b/AwABAAY
 [node name="Collectables" parent="." index="3"]
 tile_map_data = PackedByteArray("AADW//L/AAAAAAAAAQDW//P/AAAAAAAAAQDX//L/AAAAAAAAAQDX//P/AAAAAAAAAQDY//L/AAAAAAAAAQDY//P/AAAAAAAAAQDZ//L/AAAAAAAAAQDZ//P/AAAAAAAAAQDZ//b/AAAAAAAAAwDZ//f/AAAAAAAAAwDa//L/AAAAAAAAAQDa//P/AAAAAAAAAQDa//b/AAAAAAAAAwDa//f/AAAAAAAAAwDb//L/AAAAAAAAAQDb//P/AAAAAAAAAQDb//b/AAAAAAAAAwDb//f/AAAAAAAAAwDc//L/AAAAAAAAAQDc//P/AAAAAAAAAQDc//b/AAAAAAAAAwDc//f/AAAAAAAAAwDd//L/AAAAAAAAAQDd//P/AAAAAAAAAQDd//b/AAAAAAAAAwDd//f/AAAAAAAAAwDe//L/AAAAAAAAAQDe//P/AAAAAAAAAQDf//L/AAAAAAAAAQDf//P/AAAAAAAAAQD9/wAAAAAAAAAAAgACAAAAAAAAAAAAAgDv/wIAAAAAAAAAAwDw/wIAAAAAAAAAAwD0//3/AAAAAAAAAQD1//3/AAAAAAAAAQD2//3/AAAAAAAAAQAhAPj/AAAAAAAAAQAiAPj/AAAAAAAAAQAiAPf/AAAAAAAAAQAhAPf/AAAAAAAAAQAoAPf/AAAAAAAAAQAoAPj/AAAAAAAAAQApAPf/AAAAAAAAAQApAPj/AAAAAAAAAQAlAPj/AAAAAAAAAwAkAPf/AAAAAAAAAwAkAPj/AAAAAAAAAwAlAPf/AAAAAAAAAwAmAPf/AAAAAAAAAwAmAPj/AAAAAAAAAwAjAPj/AAAAAAAAAgAnAPj/AAAAAAAAAgAHAOT/AAAAAAAABAA=")
 
-[node name="SpikeEnemy" parent="." index="5" instance=ExtResource("2_g0w3i")]
-position = Vector2(79, -148)
+[node name="EnemySpawner" parent="." index="8" instance=ExtResource("3_7cbhy")]
+position = Vector2(81, -153)
 
-[node name="SpikeEnemy2" parent="." index="6" instance=ExtResource("2_g0w3i")]
-position = Vector2(-336, -24)
-direction = 1
-
-[node name="SpikeEnemy3" parent="." index="7" instance=ExtResource("2_g0w3i")]
-position = Vector2(-405, 63)
-
-[node name="SpikeEnemy4" parent="." index="8" instance=ExtResource("2_g0w3i")]
+[node name="EnemySpawner2" parent="." index="9" instance=ExtResource("3_7cbhy")]
 position = Vector2(189, -135)
-direction = 1
 
-[node name="SpikeEnemy5" parent="." index="9" instance=ExtResource("2_g0w3i")]
+[node name="EnemySpawner3" parent="." index="10" instance=ExtResource("3_7cbhy")]
 position = Vector2(405, -135)
+
+[node name="EnemySpawner4" parent="." index="11" instance=ExtResource("3_7cbhy")]
+position = Vector2(-306, -27)
+
+[node name="EnemySpawner5" parent="." index="12" instance=ExtResource("3_7cbhy")]
+position = Vector2(-405, 63)

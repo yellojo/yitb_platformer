@@ -1,15 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpmlck5yvbdw3"]
+[gd_scene load_steps=18 format=3 uid="uid://bpmlck5yvbdw3"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_3ok1e"]
 [ext_resource type="TileSet" uid="uid://csh7rabgdxsdu" path="res://geometry.tres" id="1_m51xs"]
 [ext_resource type="PackedScene" uid="uid://d0s7djbn4unm" path="res://ui/scenes/level_ui.tscn" id="2_7xpak"]
 [ext_resource type="PackedScene" uid="uid://3gvjaqr628dt" path="res://scenes/player.tscn" id="2_hw3wy"]
 [ext_resource type="PackedScene" uid="uid://do64efklf6wkx" path="res://scenes/coin.tscn" id="2_pr7na"]
+[ext_resource type="Texture2D" uid="uid://uvrqx5vo7wd7" path="res://assets/tiles/lighter.png" id="3_ahjsf"]
 [ext_resource type="PackedScene" uid="uid://din2g8tew3j4v" path="res://scenes/camera.tscn" id="3_be218"]
 [ext_resource type="PackedScene" uid="uid://7s08hvg6pe7h" path="res://scenes/spikes.tscn" id="3_nwjry"]
 [ext_resource type="Texture2D" uid="uid://dka6qj8klegir" path="res://atlas/back.tres" id="4_ca58p"]
 [ext_resource type="PackedScene" uid="uid://cbu7cfpusyvga" path="res://scenes/diamond.tscn" id="4_soux8"]
+[ext_resource type="Texture2D" uid="uid://b771lefnhno2d" path="res://assets/tiles/deeper.png" id="5_15ein"]
 [ext_resource type="PackedScene" uid="uid://dyrhxfip6v7es" path="res://scenes/flag.tscn" id="6_m3skv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1c5q"]
+atlas = ExtResource("3_ahjsf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkdc7"]
+atlas = ExtResource("5_15ein")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7tp36"]
 scenes/1/scene = ExtResource("2_pr7na")
@@ -35,8 +43,16 @@ scroll_offset = Vector2(0, 192)
 repeat_size = Vector2(96, 0)
 repeat_times = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="Lighter" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(0, -72)
+texture = SubResource("AtlasTexture_f1c5q")
+
+[node name="BackGround" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("4_ca58p")
+
+[node name="Deeper" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(0, 72)
+texture = SubResource("AtlasTexture_vkdc7")
 
 [node name="Geometry" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_m51xs")
@@ -55,3 +71,5 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
 shape = SubResource("WorldBoundaryShape2D_skjs5")
+
+[node name="Enemies" type="Node2D" parent="." groups=["enemy_parent"]]
