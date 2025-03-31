@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcuwm6w5cthvl"]
+
+[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="1_pljrb"]
+[ext_resource type="PackedScene" uid="uid://chtmp4c27aje0" path="res://scenes/spike_enemy.tscn" id="2_qysq8"]
+
+[node name="EnemySpawner" type="Marker2D"]
+script = ExtResource("1_pljrb")
+enemy_scene = ExtResource("2_qysq8")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="DelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="check_enemy_spawn"]
+[connection signal="timeout" from="DelayTimer" to="." method="spawn_enemy"]

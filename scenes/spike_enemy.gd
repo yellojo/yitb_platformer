@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Enemy
+
 enum Direction {
 	LEFT = -1,
 	RIGHT = 1
@@ -24,7 +26,6 @@ func _process(delta: float) -> void:
 	velocity.x = direction * SPEED
 	velocity.y += GRAVITY * delta
 	move_and_slide()
-
 
 func _on_dead_area_area_entered(_area: Area2D) -> void:
 	queue_free()
