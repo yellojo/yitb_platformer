@@ -29,7 +29,7 @@ animations = [{
 radius = 6.0
 height = 32.0
 
-[node name="Flag" type="Node2D"]
+[node name="Flag" type="Node2D" groups=["flag"]]
 script = ExtResource("1_gjoee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -46,8 +46,8 @@ region_rect = Rect2(198, 108, 18, 18)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -9)
-collision_layer = 4
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_tfbwx")

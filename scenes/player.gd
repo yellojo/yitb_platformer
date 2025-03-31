@@ -86,17 +86,17 @@ func dash(_delta) -> void:
 	
 
 func animation() -> void:
+	if input_dir != 0:
+		animated_sprite_2d.flip_h = input_dir > 0
+	
 	if is_on_floor():
 		if input_dir != 0:
 			animated_sprite_2d.play("run")
-			animated_sprite_2d.flip_h = input_dir > 0
 		else:
 			animated_sprite_2d.play("idle")
 	else:
 		animated_sprite_2d.play("jump")
 
-
-
 func _on_dead_area_entered(_area: Area2D) -> void:
 	died.emit()
-	print("die!!!(tai language)")
+	#print("die!!!(tai language)")
