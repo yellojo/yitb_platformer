@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dev2ic7vk1eed"]
+
+[ext_resource type="Texture2D" uid="uid://dwex0700e0sl7" path="res://ui/button/hover.tres" id="1_8561t"]
+
+[resource]
+content_margin_left = 7.0
+content_margin_top = 8.0
+content_margin_right = 7.0
+content_margin_bottom = 5.0
+texture = ExtResource("1_8561t")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(0, 0, 18, 18)

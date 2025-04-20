@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://d2t70l0gowwni"]
+
+[ext_resource type="FontFile" uid="uid://bciwjgbh8384t" path="res://ui/BitPotion.ttf" id="1_lbgx1"]
+
+[resource]
+base_font = ExtResource("1_lbgx1")
+spacing_top = -4

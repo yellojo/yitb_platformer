@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpmlck5yvbdw3"]
+[gd_scene load_steps=19 format=3 uid="uid://bpmlck5yvbdw3"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_3ok1e"]
 [ext_resource type="TileSet" uid="uid://csh7rabgdxsdu" path="res://geometry.tres" id="1_m51xs"]
 [ext_resource type="PackedScene" uid="uid://d0s7djbn4unm" path="res://ui/scenes/level_ui.tscn" id="2_7xpak"]
 [ext_resource type="PackedScene" uid="uid://3gvjaqr628dt" path="res://scenes/player.tscn" id="2_hw3wy"]
+[ext_resource type="PackedScene" uid="uid://cx7fc6oo5lyoj" path="res://ui/scenes/level_complete.tscn" id="2_n70js"]
 [ext_resource type="PackedScene" uid="uid://do64efklf6wkx" path="res://scenes/coin.tscn" id="2_pr7na"]
 [ext_resource type="Texture2D" uid="uid://uvrqx5vo7wd7" path="res://assets/tiles/lighter.png" id="3_ahjsf"]
 [ext_resource type="PackedScene" uid="uid://din2g8tew3j4v" path="res://scenes/camera.tscn" id="3_be218"]
@@ -33,6 +34,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_7tp36")
 
 [node name="Level" type="Node2D" groups=["level"]]
 script = ExtResource("1_3ok1e")
+level_complete_scene = ExtResource("2_n70js")
 
 [node name="LevelUI" parent="." instance=ExtResource("2_7xpak")]
 

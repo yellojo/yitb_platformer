@@ -4,7 +4,9 @@ class_name CollectInfo
 
 @export var icon: Texture2D:
 	get: return $Icon.texture
-	set(v): $Icon.texture = v
+	set(v): 
+		if $Icon:
+			$Icon.texture = v
 
 func set_collected(value: int) -> void:
 	$Collected.text = str(value)

@@ -11,10 +11,11 @@ enum State {
 const GRAVITY := 1500.0
 const JUMP_VELOCITY := -440.0
 
-var dash_speed = 400
+var dash_speed := 400
 var input_dir: float
-var double_jump = false
-var current_state = State.NORMAL
+var double_jump := false
+var current_state := State.NORMAL
+var is_died: bool
 
 @onready var dash_area: Area2D = $DashArea
 @onready var dead_area: Area2D = $DeadArea
@@ -48,23 +49,23 @@ func normal(delta) -> void:
 	if is_on_floor():
 		coyote_timer.start()
 		double_jump = false
-	
+
 	input_dir = Input.get_axis("move_left", "move_right")
-	
+
 	if input_dir != 0:
 		velocity.x = input_dir * 100
 	else:
 		velocity.x = lerpf(velocity.x, 0, 16 * delta)
-	
+
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or not coyote_timer.is_stopped() || double_jump == false):
 		if coyote_timer.is_stopped():
 			double_jump = true
 		coyote_timer.stop()
 		velocity.y = JUMP_VELOCITY
-	
+
 	if Input.is_action_just_pressed("dash") and dash_interval_timer.is_stopped():
 		current_state = State.DASH
-	
+
 	velocity.y += GRAVITY * delta
 	animation()
 	move_and_slide()
@@ -98,5 +99,9 @@ func animation() -> void:
 		animated_sprite_2d.play("jump")
 
 func _on_dead_area_entered(_area: Area2D) -> void:
+	if is_died:
+		return
+	
+	is_died = true
 	died.emit()
 	#print("die!!!(tai language)")
