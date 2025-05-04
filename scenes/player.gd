@@ -58,7 +58,7 @@ func normal(delta) -> void:
 	else:
 		velocity.x = lerpf(velocity.x, 0, 16 * delta)
 
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or not coyote_timer.is_stopped() || double_jump == false):
+	if Input.is_action_just_pressed("jump") and (double_jump == false or is_on_floor() or not coyote_timer.is_stopped()):
 		if coyote_timer.is_stopped():
 			double_jump = true
 		coyote_timer.stop()
