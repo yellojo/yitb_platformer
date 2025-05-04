@@ -58,7 +58,7 @@ func spawn_player():
 	register_player(player_instantiate)
 
 func on_player_died():
-	current_player_node.queue_free()
+	current_player_node.animated_sprite_2d.scale.x = 0
 	call_deferred("spawn_player")
 
 func on_player_won() -> void:

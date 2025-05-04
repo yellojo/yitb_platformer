@@ -32,7 +32,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_7tp36")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_skjs5"]
 
-[node name="Level" type="Node2D" groups=["level"]]
+[node name="Level2" type="Node2D" groups=["level"]]
 script = ExtResource("1_3ok1e")
 level_complete_scene = ExtResource("2_n70js")
 

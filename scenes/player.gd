@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 signal died
+signal camera_shake(force: float)
 
 enum State {
 	NORMAL,
@@ -62,6 +63,8 @@ func normal(delta) -> void:
 			double_jump = true
 		coyote_timer.stop()
 		velocity.y = JUMP_VELOCITY
+		
+		camera_shake.emit(1)
 
 	if Input.is_action_just_pressed("dash") and dash_interval_timer.is_stopped():
 		current_state = State.DASH
@@ -72,6 +75,7 @@ func normal(delta) -> void:
 
 func dash(_delta) -> void:
 	animated_sprite_2d.play("jump")
+	camera_shake.emit(0.8)
 	
 	velocity.y = 0
 	velocity.x = dash_speed
@@ -83,7 +87,6 @@ func dash(_delta) -> void:
 		dash_interval_timer.start()
 	
 	move_and_slide()
-	
 	
 
 func animation() -> void:
