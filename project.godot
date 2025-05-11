@@ -35,6 +35,7 @@ level=""
 diamond=""
 enemy_parent=""
 flag=""
+camera=""
 
 [gui]
 

@@ -26,7 +26,7 @@ var is_died: bool
 @onready var dash_interval_timer: Timer = $DashIntervalTimer
 
 func _ready() -> void:
-	pass
+	camera_shake.emit(5)
 	#await get_tree().create_timer(2).timeout
 	#var hehe := duplicate()
 	#hehe.global_position += Vector2.UP * 40
